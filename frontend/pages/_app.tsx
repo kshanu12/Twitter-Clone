@@ -1,12 +1,14 @@
 import Layout from "@/components/layout";
-import Modal from "@/components/modal";
+import LoginModal from "@/components/modals/loginModal";
+import RegisterModal from "@/components/modals/registerModal";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Modal actionLabel="Submit" isOpen title="Test Modal"/>
+      <RegisterModal/>
+      <LoginModal/>
       <Layout>
         <Component {...pageProps} />
       </Layout>
