@@ -15,11 +15,6 @@ export default async function handler(
                 createdAt:'desc'
             }
         })
-        console.log("WWWWWWWWWWWWWWWWWWWW",users);
-        // console.log(users);
-        
-        
-
         return res.status(200).json(users);
     }
     catch (error) {
