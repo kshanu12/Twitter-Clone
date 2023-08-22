@@ -115,6 +115,7 @@ const EditModal = () => {
       onClose={editModal.onClose}
       onSubmit={onSubmit}
       body={bodyContent}
+      footer={<div></div>}
     />
   );
 };
