@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import UserBio from "@/components/users/userBio";
 import UserHero from "@/components/users/userHero";
 import useUser from "@/hooks/useUser";
 import { useRouter } from "next/router";
@@ -22,6 +23,7 @@ const UserView = () => {
     <div>
       <Header label={fetchedUser?.name} showBackArrow />
       <UserHero userId={userId as string} />
+      <UserBio userId={userId as string} />
     </div>
   );
 };
