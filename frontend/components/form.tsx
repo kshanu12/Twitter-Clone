@@ -24,11 +24,12 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
 
   const [body, setBody] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const currentUserId = currentUser.id;
+    const currentUserId = currentUser?.id;
 
   const onSubmit = useCallback(async () => {
     try {
-        setIsLoading(true);
+      setIsLoading(true);
+      console.log(body, currentUserId);
         
         await axios.post("/api/posts", { body,currentUserId });
         
@@ -69,14 +70,14 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
                 "
               placeholder={placeholder}
             ></textarea>
-                      <hr className="opacity-0 peer-focus:opacity-100 h-[1px] w-full border-neutral-800 transition"/>
-                      <div className="mt-4 flex flex-row justify-end">
-                          <Button
-                              disabled={isLoading || !body}
-                              onClick={onSubmit}
-                          label="Tweet"/>
-                          
-                          </div>
+            <hr className="opacity-0 peer-focus:opacity-100 h-[1px] w-full border-neutral-800 transition" />
+            <div className="mt-4 flex flex-row justify-end">
+              <Button
+                disabled={isLoading || !body}
+                onClick={onSubmit}
+                label="Tweet"
+              />
+            </div>
           </div>
         </div>
       ) : (
