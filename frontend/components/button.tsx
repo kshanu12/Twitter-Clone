@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
             font-semibold
             hover:opacity-80
             transition
-            border-2
+            border-1
             ${fullWidth ? 'w-full':'w.fit'}
             ${secondary ?'bg-white':'bg-sky-500'}
             ${secondary ? 'text-black':'text-white'}
