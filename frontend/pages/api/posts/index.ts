@@ -1,5 +1,3 @@
-import useCurrentUser from "@/hooks/useCurrentUser";
-import serverAuth from "@/libs/serverAuth";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/libs/prismadb";
 
@@ -12,12 +10,12 @@ export default async function handler(
   }
   try {
     if (req.method === "POST") {
-      const { currentUser } = await serverAuth(req);
+      const  currentUserId  = req.body.currentUserId;
       const { body } = req.body;
       const post = await prisma.post.create({
         data: {
           body,
-          userId: currentUser.id,
+          userId: currentUserId,
         },
       });
       return res.status(200).json(post);
